@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    >
+    <View style="@style/line"/>
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+
+        >
+
+        <ListView
+            android:id="@+id/discussion_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@null"
+            android:dividerHeight="20dp"
+            android:cacheColorHint="#00000000"
+            android:animateLayoutChanges="true"
+            />
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/progressbar"
+            android:layout_width="match_parent"
+            android:layout_height="10dp">
+        </androidx.core.widget.ContentLoadingProgressBar>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/discussion_list"
+        style="@style/InputBoxStyle">
+        <EditText
+            android:id="@+id/mycomment"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:hint="请输入您的评论..."
+            android:gravity="top"
+            android:maxLength="25"
+            android:maxLines="1"
+            style="@style/EditTextStyle"/>
+        <Button
+            android:id="@+id/push"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="发表"/>
+
+        />
+
+    </LinearLayout>
+
+</LinearLayout>

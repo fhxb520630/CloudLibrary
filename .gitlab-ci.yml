@@ -1,0 +1,60 @@
+image: runmymind/docker-android-sdk:ubuntu-standalone
+
+variables:
+  ANDROID_COMPILE_SDK: "28"
+
+before_script:
+  - source /opt/android-sdk-linux/bin/android-env.sh
+  - export GRADLE_USER_HOME=$(pwd)/.gradle
+  - chmod +x ./gradlew
+
+cache:
+  paths:
+    - .gradle/
+
+stages:
+  - build
+  - checkstyle
+  - ftest
+  - test
+
+build:
+  stage: build
+  script:
+    - ./gradlew assembleDebug
+  artifacts:
+    paths:
+    - app/build/outputs/
+
+checkstyle:
+  stage: checkstyle
+  script:
+    - ./gradlew checkstyle
+
+ftest:
+  stage: ftest
+  script:
+    - ./gradlew test
+
+unitTests:
+  stage: test
+  script:
+    - ./gradlew check
+  after_script:
+    - SUFFIX=$RANDOM
+    - curl -s "http://10.0.0.11/sonar-scanner.tar.gz" -o "/tmp/sonar-$SUFFIX.tar.gz"
+    - tar -xf "/tmp/sonar-$SUFFIX.tar.gz" -C /opt
+    - /opt/sonar-scanner/bin/sonar-scanner
+
+# Skip Android Virtual Device (AVD)
+# functionalTests:
+#   stage: test
+#   script:
+#     - echo no | avdmanager create avd -n test -k "system-images;android-${ANDROID_COMPILE_SDK};google_apis;x86" --abi google_apis/x86
+#     - emulator64-x86 -avd test -no-window -no-audio &
+#     - /opt/tools/android-wait-for-emulator
+#     - adb shell input keyevent 82
+#     - ./gradlew cAT
+#   artifacts:
+#     paths:
+#     - app/build/reports/androidTests/

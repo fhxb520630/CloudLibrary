@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:text="院系:计算机系"
+        android:textSize="20dp"
+        style="@style/BoxStyle"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:text="学号:XXXXXXXXXX"
+        android:textSize="20dp"
+        style="@style/BoxStyle"/>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        style="@style/BoxStyle">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="邮箱:"
+            android:textSize="20sp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="shenyt18@mails.tsinghua.edu.cn"
+            android:textSize="15sp"/>
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/infolaytout_student_change"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="200dp"
+        android:layout_height="42dp"
+        android:text="修改信息"
+        android:gravity="center"
+        android:textSize="20dp"/>
+
+    <Button
+        android:id="@+id/infolayout_student_out"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="200dp"
+        android:layout_height="42dp"
+        android:text="登出"
+        android:gravity="center"
+        android:textSize="20dp"/>
+
+    <Button
+        android:id="@+id/infolayout_student_inform"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="200dp"
+        android:layout_height="42dp"
+        android:text="管理员私信"
+        android:gravity="center"
+        android:textSize="20dp"/>
+    <Button
+        android:id="@+id/infolayout_student_grade"
+        android:layout_width="200dp"
+        android:layout_height="42dp"
+        android:layout_gravity="center"
+        android:text="评分"
+        android:textSize="20sp"/>
+
+</LinearLayout>

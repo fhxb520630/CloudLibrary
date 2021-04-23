@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LogActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_marginTop="100dp"
+        android:layout_width="350dp"
+        android:layout_height="500dp"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:text="用户名"
+                android:textSize="20sp"
+                android:gravity="center"/>
+
+            <EditText
+                android:id="@+id/activity_log_username"
+                android:layout_weight="4"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:hint="输入管理员用户名"
+                android:layout_gravity="center"
+                android:textSize="15dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:text="密码"
+                android:textSize="20sp"
+                android:gravity="center"/>
+
+            <EditText
+                android:id="@+id/activity_log_password"
+                android:layout_weight="4"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:hint="输入管理员密码"
+                android:layout_gravity="center"
+                android:textSize="15dp"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/activity_log_button"
+            android:layout_marginTop="50dp"
+            android:layout_gravity="center"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:text="登录"
+            android:gravity="center"
+            android:textSize="20dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>
