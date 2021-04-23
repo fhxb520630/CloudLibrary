@@ -17,14 +17,14 @@
 			android:layout_marginLeft="70dp"
 			android:layout_height="60dp"
 			android:background="@drawable/f_button"/>
+
 		<TextView
+			android:id="@+id/floor_text"
 			android:layout_width="0dp"
 			android:layout_height="match_parent"
 			android:layout_weight="1"
 			android:gravity="left|center_vertical"
-			android:text="hhhhhh"
-			android:textSize="30dp"
-			android:id="@+id/floor_text">
+			android:textSize="30dp">
 
 		</TextView>
 	</LinearLayout>

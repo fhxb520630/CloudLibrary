@@ -91,9 +91,13 @@ public class CommentContentActivity extends AppCompatActivity {
             author.setTextColor(Color.parseColor("#D34040"));
         }
         Button button2 =  findViewById(R.id.delete2);
+        Button hide_button = findViewById(R.id.hide2);
         button2.bringToFront();
+        hide_button.bringToFront();
         CLApplication clapplication = (CLApplication) getApplicationContext();
+
         button2.setVisibility(View.GONE);
+        hide_button.setVisibility(View.GONE);
         if(clapplication.getNowInfo() == 2){
             button2.setVisibility(View.VISIBLE);
             button2.setOnClickListener(view -> {
@@ -121,6 +125,32 @@ public class CommentContentActivity extends AppCompatActivity {
                 dialog.show();
             });
             button2.setFocusable(false);
+            hide_button.setVisibility(View.VISIBLE);
+            hide_button.setOnClickListener(view -> {
+                SweetAlertDialog dialog = new SweetAlertDialog(mcontext,SweetAlertDialog.WARNING_TYPE);
+                dialog.setTitleText("提示");
+                dialog.setContentText("确认要隐藏这条留言吗？ ");
+                dialog.setCancelable(true);
+                dialog.setConfirmText("确认");
+                dialog.setConfirmClickListener(sDialog -> {
+                    new Communication().deleteComment(fatherComment);
+                    SweetAlertDialog dialog2 = new SweetAlertDialog(mcontext,SweetAlertDialog.SUCCESS_TYPE);
+                    dialog2.setTitleText("提示");
+                    dialog2.setContentText("已隐藏");
+                    dialog2.setCancelable(true);
+                    dialog2.setConfirmText("确认");
+                    dialog2.setConfirmClickListener(sDialog1 -> {
+                        sDialog1.dismissWithAnimation();
+                        finish();
+                    });
+                    dialog2.show();
+                    sDialog.dismissWithAnimation();
+                });
+                dialog.setCancelText("取消");
+                dialog.setCancelClickListener(SweetAlertDialog::dismissWithAnimation);
+                dialog.show();
+            });
+            hide_button.setFocusable(false);
         }
         adapter.notifyDataSetChanged();
 

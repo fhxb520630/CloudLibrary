@@ -10,13 +10,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
+
             <com.github.library.bubbleview.BubbleTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -34,7 +34,15 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"/>
+                android:layout_weight="1">
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/hide2"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:text="隐藏" />
 
             <Button
                 android:layout_width="80dp"
@@ -42,6 +50,7 @@
                 android:text="删除"
                 android:id="@+id/delete2"
                 />
+
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"

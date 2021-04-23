@@ -161,10 +161,26 @@ public class Communication {
             Log.d("context", String.valueOf(e));
         }
 
+    }
 
+    public void hideComment(final Comment comment){
 
+        try {
+            URL url = new URL(INDEX);
+            Map<String,String> param = new HashMap<>();
+
+            param.put("type","hide_comment");
+            param.put("name",comment.getAuthor());
+            param.put("text",comment.getTitle());
+            param.put("time",comment.getDate());
+
+            testCode = postUrl(url,param);
+        } catch (MalformedURLException e) {
+            Log.d("context", String.valueOf(e));
+        }
 
     }
+
     public void deleteReply(final Comment comment){
 
 
