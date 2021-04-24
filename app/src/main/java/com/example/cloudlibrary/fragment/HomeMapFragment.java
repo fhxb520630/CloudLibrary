@@ -6,8 +6,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Spinner;
 
 import androidx.fragment.app.Fragment;
 
@@ -19,6 +21,7 @@ import com.example.cloudlibrary.util.Communication;
 
 import org.json.JSONException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
@@ -63,6 +66,16 @@ public class HomeMapFragment extends Fragment {
             }
 
         });
+
+        Spinner spinner = (Spinner) view.findViewById(R.id.map_spinner);
+        List<String> point_list = new ArrayList<String>();
+        for(int i = 0; i < buttonInfoList.size(); i++){
+            point_list.add(buttonInfoList.get(i).getContent());
+        }
+        ArrayAdapter<String> arr_adapter= new ArrayAdapter<String>(null, android.R.layout.simple_spinner_item, point_list);
+        arr_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(arr_adapter);
+
         return view;
     }
 

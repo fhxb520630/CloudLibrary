@@ -31,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
 
     private HomeFragment homeFragment;
     private InfoFragment infoFragment;
+    private ForumFragment forumFragment;
+    private NewsFragment newsFragment;
 
     @SuppressLint("HandlerLeak")
     private Handler handler=new Handler(){
@@ -63,8 +65,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         infoFragment=new InfoFragment();
         homeFragment=new HomeFragment();
-        ForumFragment forumFragment=new ForumFragment(this);
-        NewsFragment newsFragment=new NewsFragment(this);
+        forumFragment=new ForumFragment(this);
+        newsFragment=new NewsFragment(this);
 
         mFragments = new ArrayList<>();
         List<String> tabTitle = new ArrayList<>();
