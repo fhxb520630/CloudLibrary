@@ -74,7 +74,9 @@ public class HomeMapFragment extends Fragment {
         }
         ArrayAdapter<String> arr_adapter= new ArrayAdapter<String>(null, android.R.layout.simple_spinner_item, point_list);
         arr_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setPrompt("请选择你要游览的地点");
         spinner.setAdapter(arr_adapter);
+
 
         return view;
     }
